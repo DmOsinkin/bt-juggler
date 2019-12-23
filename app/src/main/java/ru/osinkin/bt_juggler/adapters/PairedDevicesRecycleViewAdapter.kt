@@ -13,7 +13,7 @@ class PairedDevicesRecycleViewAdapter(private val myDataset: MutableList<String>
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
-    class MyViewHolder(val pairedDevicesItemView: View) : RecyclerView.ViewHolder(pairedDevicesItemView) {
+    class MyViewHolder(pairedDevicesItemView: View) : RecyclerView.ViewHolder(pairedDevicesItemView) {
         var textView: TextView? = null
         init {
             textView = pairedDevicesItemView.findViewById(R.id.paired_Devices_List_Item)

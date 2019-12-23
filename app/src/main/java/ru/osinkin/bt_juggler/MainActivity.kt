@@ -1,11 +1,11 @@
 package ru.osinkin.bt_juggler
 
-import android.bluetooth.BluetoothAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.osinkin.bt_juggler.adapters.PairedDevicesRecycleViewAdapter
+import ru.osinkin.bt_juggler.data.PairedDevicesController
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,15 +23,9 @@ class MainActivity : AppCompatActivity() {
         pairedDevicesRecyclerView.layoutManager = layoutManager
 
         // specify an adapter (see also next example)
-        val mAdapter = PairedDevicesRecycleViewAdapter(getPairedDevices())
+        val mAdapter = PairedDevicesRecycleViewAdapter(PairedDevicesController.getPairedDevices())
         pairedDevicesRecyclerView.adapter = mAdapter
     }
 
-    private fun getPairedDevices(): MutableList<String> {
-        val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
-        val pairedDevices = mBluetoothAdapter.bondedDevices
-        val pairedDevicesList = mutableListOf<String>()
-        for (bt in pairedDevices) pairedDevicesList.add(bt.name)
-        return pairedDevicesList
-    }
+
 }
