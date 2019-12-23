@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">bt-juggler</string>
+    <string name="pairedDevicesTextView">Paired devices</string>
+</resources>
