@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">bt-juggler</string>
     <string name="pairedDevicesTextView">Paired devices</string>
+    <string name="device_name_detailed_fragment">Name:</string>
+    <string name="device_address_detailed_fragment">Address:</string>
+    <string name="device_other_info_detailed_fragment">Other Information:</string>
 </resources>
