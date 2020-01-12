@@ -3,11 +3,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="5dp">
-
     <TextView
-        android:id="@+id/paired_Devices_List_Item"
+        android:id="@+id/device_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text" />
+        android:text="Unknown"
+        android:textSize="24sp"/>
+    <TextView android:id="@+id/device_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"/>
 
 </LinearLayout>

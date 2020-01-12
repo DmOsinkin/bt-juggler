@@ -20,7 +20,7 @@ class PairedDevicesRecycleViewAdapter(private val myDataset: MutableList<Bluetoo
         var textView: TextView? = null
 
         init {
-            textView = pairedDevicesItemView.findViewById(R.id.paired_Devices_List_Item)
+            textView = pairedDevicesItemView.findViewById(R.id.device_name)
         }
     }
 
