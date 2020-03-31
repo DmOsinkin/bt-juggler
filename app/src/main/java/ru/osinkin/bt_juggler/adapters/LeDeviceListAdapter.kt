@@ -34,7 +34,7 @@ class LeDeviceListAdapter(private val mLeDevices: MutableList<BluetoothDevice>) 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // create a new view
         val textView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.paired_device_text_view, parent, false)
+            .inflate(R.layout.device_card_view, parent, false)
         return ViewHolder(textView)
     }
 

@@ -28,7 +28,7 @@ class PairedDevicesRecycleViewAdapter(private val myDataset: MutableList<Bluetoo
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         // create a new view
         val textView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.paired_device_text_view, parent, false)
+            .inflate(R.layout.device_card_view, parent, false)
         return MyViewHolder(textView)
     }
 
