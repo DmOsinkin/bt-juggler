@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.osinkin.bt_juggler.R
 import ru.osinkin.bt_juggler.adapters.LeDeviceListAdapter.ViewHolder
 
-class LeDeviceListAdapter(private val mLeDevices: MutableList<BluetoothDevice>) :
+class LeDeviceListAdapter(
+    private val mLeDevices: MutableList<BluetoothDevice>,
+    private var onItemClickListener: OnItemCLickListener
+) :
     RecyclerView.Adapter<ViewHolder>() {
 
     fun addDevice(device: BluetoothDevice) {
@@ -35,13 +38,27 @@ class LeDeviceListAdapter(private val mLeDevices: MutableList<BluetoothDevice>) 
         // create a new view
         val textView = LayoutInflater.from(parent.context)
             .inflate(R.layout.device_card_view, parent, false)
-        return ViewHolder(textView)
+        return ViewHolder(textView, onItemClickListener)
     }
 
-    class ViewHolder(pairedDevicesItemView: View) : RecyclerView.ViewHolder(pairedDevicesItemView) {
+    class ViewHolder(pairedDevicesItemView: View, private var mListener: OnItemCLickListener) :
+        RecyclerView.ViewHolder(pairedDevicesItemView),
+        View.OnClickListener {
+
         var deviceName: TextView = pairedDevicesItemView.findViewById(R.id.device_name)
         var deviceAddress: TextView = pairedDevicesItemView.findViewById(R.id.device_address)
 
+        init {
+            pairedDevicesItemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            mListener.onItemClick(adapterPosition)
+        }
+    }
+
+    interface OnItemCLickListener {
+        fun onItemClick(position: Int)
     }
 
     override fun getItemCount(): Int = mLeDevices.size
