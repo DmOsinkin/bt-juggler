@@ -43,10 +43,7 @@ class BluetoothModel {
     }
 
     fun isBluetoothSupported(): Boolean {
-        if (this.mBluetoothAdapter == null) {
-            return false
-        }
-        return true
+        return this.mBluetoothAdapter != null
     }
 
     companion object {
