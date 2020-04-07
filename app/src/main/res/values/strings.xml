@@ -1,15 +1,10 @@
 <resources>
     <string name="app_name">bt-juggler</string>
     <string name="scanning_switch_title">Scanning</string>
-    <string name="pairedDevicesTextView">Paired devices</string>
-    <string name="device_name_detailed_fragment">Name:</string>
-    <string name="device_address_detailed_fragment">Address:</string>
-    <string name="device_other_info_detailed_fragment">Other Information:</string>
-    <string name="menu_connect">Connect</string>
-    <string name="menu_disconnect">Disconnect</string>
-    <string name="menu_scan">Scan</string>
-    <string name="menu_stop">Stop</string>
     <string name="ble_not_supported">BLE not supported on your device</string>
     <string name="bluetooth_not_supported">Bluetooth not supported on your device</string>
     <string name="unknown_device">Unknown device</string>
+    <string name="no_data">No data</string>
+    <string name="write_button">Write</string>
+    <string name="read_button">Read</string>
 </resources>

@@ -47,7 +47,7 @@ class BluetoothModel {
     }
 
     companion object {
-        private const val SCAN_PERIOD: Long = 10000
+        private const val SCAN_PERIOD: Long = 100000
     }
 
 }

@@ -99,8 +99,8 @@ class MainActivity : AppCompatActivity(), OnItemCLickListener, BluetoothScanView
         val device: BluetoothDevice = deviceListAdapter.getDevice(position)
 
         val intent = Intent(this@MainActivity, DeviceControlActivity::class.java)
-        //intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.name)
-        //intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.address)
+        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.name)
+        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.address)
         Log.d("MainActivity", device.name + ": " + device.address)
 //        if (mScanning) {
 //            mLeScanner.stopScan(mScanCallback)
