@@ -94,8 +94,8 @@ class DeviceControlActivity : Activity() {
 
     fun onClickWrite(v: View?) {
         if (mBluetoothLeService != null) {
-            //TODO(): change to value from characteristicValueEditText
-            mBluetoothLeService!!.writeCustomCharacteristic(0xAA)
+            val text = characteristicValueEditText.text
+            mBluetoothLeService!!.writeCustomCharacteristic(text.toString())
         }
     }
 

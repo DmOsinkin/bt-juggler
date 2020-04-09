@@ -218,7 +218,7 @@ class BluetoothLeService : Service() {
         }
     }
 
-    fun writeCustomCharacteristic(value: Int) {
+    fun writeCustomCharacteristic(value: String) {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Log.w(TAG, "BluetoothAdapter not initialized")
             return
@@ -234,8 +234,7 @@ class BluetoothLeService : Service() {
         val mWriteCharacteristic =
             mCustomService.getCharacteristic(CUSTOM_CHARACTERISTIC)
 
-        mWriteCharacteristic.setValue(value, BluetoothGattCharacteristic.FORMAT_UINT8, 0)
-
+        mWriteCharacteristic.setValue(value)
         if (!mBluetoothGatt!!.writeCharacteristic(mWriteCharacteristic)) {
             Log.w(TAG, "Failed to write characteristic")
         }
