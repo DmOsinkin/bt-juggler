@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity(), OnItemCLickListener, BluetoothScanView
 
         bluetoothScanningSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) deviceListAdapter.clear()
+            deviceListAdapter.notifyDataSetChanged()
             bluetoothScanningPresenter.startOrEndScanning(isChecked)
         }
     }
@@ -99,14 +100,11 @@ class MainActivity : AppCompatActivity(), OnItemCLickListener, BluetoothScanView
     override fun onItemClick(position: Int) {
         val device: BluetoothDevice = deviceListAdapter.getDevice(position)
 
-        val intent = Intent(this@MainActivity, DeviceControlActivity::class.java)
-        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.name)
-        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.address)
+        val intent = Intent(this@MainActivity, DeviceControlActivity::class.java).apply {
+            putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.name)
+            putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.address)
+        }
         Log.d("MainActivity", device.name + ": " + device.address)
-//        if (mScanning) {
-//            mLeScanner.stopScan(mScanCallback)
-//            mScanning = false
-//        }
         bluetoothScanningPresenter.startOrEndScanning(false)
         startActivity(intent)
     }

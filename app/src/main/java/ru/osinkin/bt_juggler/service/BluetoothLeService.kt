@@ -100,7 +100,7 @@ class BluetoothLeService : Service() {
         if (data != null) {
             val stringBuilder = StringBuilder(data.size)
             for (byteChar in data) stringBuilder.append(String.format("%02X ", byteChar))
-            intent.putExtra(EXTRA_DATA, """${String(data)}$stringBuilder""".trimIndent())
+            intent.putExtra(EXTRA_DATA, String(data))
         }
         sendBroadcast(intent)
     }
@@ -116,8 +116,6 @@ class BluetoothLeService : Service() {
         close()
         return super.onUnbind(intent)
     }
-
-
 
     /**
      * Initializes a reference to the local Bluetooth adapter.
@@ -135,7 +133,7 @@ class BluetoothLeService : Service() {
                 return false
             }
         }
-        mBluetoothAdapter = mBluetoothManager!!.adapter
+        mBluetoothAdapter = mBluetoothManager?.adapter
         if (mBluetoothAdapter == null) {
             Log.e(TAG, "Unable to obtain a BluetoothAdapter.")
             return false
@@ -165,7 +163,7 @@ class BluetoothLeService : Service() {
             return mBluetoothGatt!!.connect()
         }
 
-        val device = mBluetoothAdapter!!.getRemoteDevice(address)
+        val device = mBluetoothAdapter?.getRemoteDevice(address)
         if (device == null) {
             Log.w(TAG, "Device not found.  Unable to connect.")
             return false
@@ -251,7 +249,7 @@ class BluetoothLeService : Service() {
             "com.example.bluetooth.le.ACTION_GATT_DISCONNECTED"
         const val ACTION_DATA_AVAILABLE = "com.example.bluetooth.le.ACTION_DATA_AVAILABLE"
         const val EXTRA_DATA = "com.example.bluetooth.le.EXTRA_DATA"
-        val CUSTOM_CHARACTERISTIC = UUID.fromString(GattCharacteristics.CUSTOM_CHARACTERISTIC)
-        val CUSTOM_SERVICE = UUID.fromString(GattCharacteristics.CUSTOM_SERVICE)
+        val CUSTOM_CHARACTERISTIC: UUID = UUID.fromString(GattCharacteristics.CUSTOM_CHARACTERISTIC)
+        val CUSTOM_SERVICE: UUID = UUID.fromString(GattCharacteristics.CUSTOM_SERVICE)
     }
 }
