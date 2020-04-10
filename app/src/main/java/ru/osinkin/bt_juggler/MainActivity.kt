@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity(), OnItemCLickListener, BluetoothScanView
         devicesRecycleView.adapter = deviceListAdapter
 
         bluetoothScanningSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) deviceListAdapter.clear()
             bluetoothScanningPresenter.startOrEndScanning(isChecked)
         }
     }
